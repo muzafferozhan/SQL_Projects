@@ -1,7 +1,8 @@
 '
 INTRODUCTION
 
-- Data is often incorrectly formatted, duplicated or lacks granularity to allow analysis of data as desired.
+- Company\'s employees data is incorrectly formatted, duplicated or lacks granularity which 
+could potentially prevent analysing the data as required.
 - The goal of this project is to analyse and normalise a database in areas where this is required. 
 - The columns on people table are as follows:
 id(pk), first_name, last_name, email, education, occupation, salary, department, address
@@ -108,6 +109,6 @@ where
 people.id=address.pfk
 
 'CONCLUSION
-All the fields are now consistent and address field atomic in a separate table. 
-Original intent and integrity of the database have been maintained.
-Data is cleaned and database is normalised using regular expressions, table creation and data insertion'
+- All the fields are now consistent and address field atomic in a separate table. 
+- Original intent and integrity of the database have been maintained.
+- Data is cleaned and database is normalised using regular expressions, table creation and data insertion'

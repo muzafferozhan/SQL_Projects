@@ -1,3 +1,6 @@
+'This project is made up of a workplace scenario where I will use SQL querying on company
+data for various purposes to meet management\'s needs to make informed and data-driven decisions.'
+
 -- 1) Descriptive statistics using Sub-query
 SELECT 
     ProductName,
@@ -23,6 +26,15 @@ FROM (
         p.PRODUCTID, date_trunc('month', s.OrderDate)
 ) AS Subquery
 GROUP BY ProductName;
+
+-----------------------------------------------------------------
+| PRODUCTNAME | MIN_REV | MAX_REV | AVG_REV | STD_DEV_REV        |
+------------------------------------------------------------------
+| Basic       | 500     | 28000   | 13188   | 8123.763642197237  |
+| Expert      | 3000    | 46000   | 18000   | 13796.134724383252 |
+------------------------------------------------------------------
+
+
 
 -- 2) Descriptive statistics using CTE 
 
