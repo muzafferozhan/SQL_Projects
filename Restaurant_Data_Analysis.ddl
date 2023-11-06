@@ -1,6 +1,6 @@
 'INTRODUCTION
-- To fulfill management requests regarding the trade at a restaurant, restaurant sales data 
-and employees data are analysed and the required outputs are created.
+- To fulfill management requests regarding the trade at a restaurant as a workplace scenario,
+restaurant sales data and employees data are analysed and the required outputs are created.
 - The following are the related tables where data is queried.
 '
 CREATE SCHEMA `Restaurant_Sales` ;

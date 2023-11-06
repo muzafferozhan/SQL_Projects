@@ -1,7 +1,7 @@
 'This project is made up of a workplace scenario where I will use SQL querying on company
 data for various purposes to meet management\'s needs to make informed and data-driven decisions.'
 
--- 1) Descriptive statistics using Sub-query
+'1) Descriptive Statistics for Monthly revenue by product using Subquery'
 SELECT 
     ProductName,
     MIN(sum) as MIN_REV,
@@ -34,9 +34,8 @@ GROUP BY ProductName;
 | Expert      | 3000    | 46000   | 18000   | 13796.134724383252 |
 ------------------------------------------------------------------
 
-
-
--- 2) Descriptive statistics using CTE 
+'Alternatively I can use a CTE to calculate the descriptive statistics for monthly revenue by 
+product'
 
 WITH Sum_Table AS (
     SELECT
@@ -64,7 +63,15 @@ SELECT
 FROM Sum_Table
 GROUP BY PRODUCTNAME;
 
---      3) Number of clicks on a link in an email per user 
+-----------------------------------------------------------------
+| PRODUCTNAME | MIN_REV | MAX_REV | AVG_REV | STD_DEV_REV        |
+------------------------------------------------------------------
+| Basic       | 500     | 28000   | 13188   | 8123.763642197237  |
+| Expert      | 3000    | 46000   | 18000   | 13796.134724383252 |
+------------------------------------------------------------------
+
+'2) We now need the number of clicks on a link in an email per user as an understanding of
+how well an email marketing campaign is doing'
 
 WITH email_link_clicks as (
 SELECT
@@ -85,3 +92,37 @@ FROM
 email_link_clicks
 GROUP BY
 NUM_LINK_CLICKS
+
+-------------------------------
+| NUM_USERS | NUM_LINK_CLICKS |
+-------------------------------
+| 3         | 1               |
+| 2         | 2               |
+| 1         | 3               |
+-------------------------------
+' A subquery as follows also returns the same output.'
+
+SELECT
+    NUM_LINK_CLICKS,
+    COUNT(userid) AS NUM_USERS
+FROM (
+    SELECT
+        userid,
+        COUNT(*) AS num_link_clicks
+    FROM
+        frontendeventlog el
+    WHERE
+        eventid = 5
+    GROUP BY
+        userid
+) email_link_clicks
+GROUP BY
+    NUM_LINK_CLICKS;
+
+-------------------------------
+| NUM_LINK_CLICKS | NUM_USERS |
+-------------------------------
+| 1               | 3         |
+| 2               | 2         |
+| 3               | 1         |
+-------------------------------
