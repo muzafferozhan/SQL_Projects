@@ -20,7 +20,7 @@ Each notebook is a walk-through of the project, with step-by-step explanations a
 ### Technologies
 * MySQL, SQLite
 
-## Needs of this project
+## Needs of the projects
 
 - Data exploration
 - Data processing/cleaning
